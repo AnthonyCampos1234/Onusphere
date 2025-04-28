@@ -6,9 +6,7 @@ This document outlines the workflow for contributing to the Onusphere project. O
 - [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
 - [Development Workflow](#development-workflow)
-- [Branching Strategy](#branching-strategy)
 - [Submitting Changes](#submitting-changes)
-- [Code Reviews](#code-reviews)
 - [Common Issues with Submodules](#common-issues-with-submodules)
 
 ## Repository Structure
@@ -54,29 +52,26 @@ Before you start working, determine which submodule your changes will affect:
 - Backend changes → Backend submodule
 - Project-wide changes (documentation, configuration, etc.) → Main repository
 
-### 2. Create a Feature Branch
+### 2. Make Sure You're Up-to-Date
 
-Navigate to the appropriate repository and create a feature branch:
+Navigate to the appropriate repository and make sure you have the latest changes:
 
 ```bash
 # For frontend changes
 cd frontend
 git checkout main
 git pull origin main
-git checkout -b feature/your-feature-name
 
 # For backend changes
 cd backend
 git checkout main
 git pull origin main
-git checkout -b feature/your-feature-name
 
 # For main repository changes
 # First go to the root of the main repository
 cd /path/to/Onusphere  # Return to main repo if you were in a submodule
 git checkout main
 git pull origin main
-git checkout -b feature/your-feature-name
 ```
 
 ### 3. Make Your Changes
@@ -92,27 +87,24 @@ git add .
 # Commit your changes
 git commit -m "Description of your changes"
 
-# Push your branch to the remote repository
-git push -u origin feature/your-feature-name
+# Push your changes to the main branch
+git push origin main
 ```
-
-## Branching Strategy
-
-We follow a simplified Git Flow approach:
-
-- `main`: Always contains stable, production-ready code
-- `develop`: Integration branch for features (optional, use if project size grows)
-- `feature/*`: For new features or changes
-- `bugfix/*`: For bug fixes
-- `hotfix/*`: For critical fixes to production
 
 ## Submitting Changes
 
 ### For Submodule Changes (Frontend or Backend)
 
-1. Submit a Pull Request (PR) in the respective submodule repository
-2. Once the PR is approved and merged into the submodule's `main` branch
-3. Update the submodule reference in the main repository:
+1. Commit and push your changes directly to the main branch of the submodule:
+
+```bash
+# In the submodule directory
+git add .
+git commit -m "Description of your changes"
+git push origin main
+```
+
+2. Update the submodule reference in the main repository:
 
 ```bash
 # In the main repository
@@ -128,13 +120,19 @@ git push origin main
 
 ### For Main Repository Changes
 
-Submit a PR directly to the main repository.
+Commit and push directly to the main repository:
 
-## Code Reviews
+```bash
+git add .
+git commit -m "Description of your changes"
+git push origin main
+```
 
-- All changes require at least one review before merging
-- Use GitHub's PR features to request reviews
-- Address all comments and ensure all tests pass before merging
+## Coordination
+
+- Communicate with team members before making significant changes
+- Let others know when you've pushed changes
+- Consider using GitHub issues to track work items
 
 ## Common Issues with Submodules
 
@@ -176,12 +174,12 @@ Handle conflicts in the submodule first, then update the reference in the main r
 ## Best Practices
 
 1. **Communicate before starting work** to avoid duplicate efforts
-2. **Keep submodule changes focused** on a single feature or bug fix
+2. **Keep submodule changes focused** on a specific task
 3. **Update submodules frequently** to stay in sync with teammates
-4. **Always create a feature branch** for your changes
+4. **Pull before you start working** to avoid conflicts
 5. **Write detailed commit messages** explaining what and why (not how)
-6. **Run tests locally** before submitting PRs
-7. **Keep PRs small and focused** for easier reviews
+6. **Test your changes** before pushing
+7. **Push small, incremental changes** rather than large batches
 
 ---
 

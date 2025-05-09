@@ -30,6 +30,7 @@ GET    /api/truck-loading/customers
 GET    /api/truck-loading/customers/{id}
 POST   /api/truck-loading/customers
 PUT    /api/truck-loading/customers/{id}
+// you just mock delete them by using a boolean so they cant see it but its still in the database
 DELETE /api/truck-loading/customers/{id}
 
 # Order Endpoints
@@ -39,6 +40,8 @@ GET    /api/truck-loading/orders/{id}
 POST   /api/truck-loading/orders
 PUT    /api/truck-loading/orders/{id}
 PUT    /api/truck-loading/orders/{id}/status
+// you just mock delete them by using a boolean so they cant see it but its still in the database
+DELETE /api/truck-loading/orders/{id}
 
 # Email Processing
 POST   /api/truck-loading/email-processor/webhook

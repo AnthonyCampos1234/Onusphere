@@ -55,6 +55,7 @@ POST   /api/truck-loading/orders/{id}/generate-loading-plan
 
 Create a system to:
 - Receive emails forwarded to orders@onusphere.com
+- Require users to add the customer ID in the subject line of the forwarded email (format: "[CUSTOMER_ID] Original Subject") to associate orders with customers even when the sender's email isn't registered with the account
 - Extract customer and order information
 - Create orders in the database
 - Generate loading instructions

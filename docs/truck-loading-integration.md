@@ -1,10 +1,10 @@
-# Truck Loading Helper - Frontend/Backend Integration
+# Load Plan Pro - Frontend/Backend Integration
 
-This document outlines the current state of the Truck Loading Helper tool and what backend components need to be implemented to make it fully functional.
+This document outlines the current state of the Load Plan Pro tool and what backend components need to be implemented to make it fully functional.
 
 ## Overview
 
-The Truck Loading Helper is a tool for managing customers and their orders for truck loading purposes. The frontend is already built with React and TypeScript and uses an email-based workflow for adding new orders where users forward emails to orders@onusphere.com.
+The Load Plan Pro is a tool for managing customers and their orders for truck loading purposes. The frontend is already built with React and TypeScript and uses an email-based workflow for adding new orders where users forward emails to orders@onusphere.com.
 
 ### Backend Components (Needed)
 
@@ -22,33 +22,33 @@ Existing models need to be enhanced:
 
 ### 2. API Endpoints
 
-Create a dedicated router `/backend/routes/truck_loading.py` with these endpoints:
+Create a dedicated router `/backend/routes/load_plan.py` with these endpoints:
 
 ```
 # Customer Endpoints
-GET    /api/truck-loading/customers
-GET    /api/truck-loading/customers/{id}
-POST   /api/truck-loading/customers
-PUT    /api/truck-loading/customers/{id}
+GET    /api/load-plan/customers
+GET    /api/load-plan/customers/{id}
+POST   /api/load-plan/customers
+PUT    /api/load-plan/customers/{id}
 // you just mock delete them by using a boolean so they cant see it but its still in the database
-DELETE /api/truck-loading/customers/{id}
+DELETE /api/load-plan/customers/{id}
 
 # Order Endpoints
-GET    /api/truck-loading/orders
-GET    /api/truck-loading/customers/{customer_id}/orders
-GET    /api/truck-loading/orders/{id}
-POST   /api/truck-loading/orders
-PUT    /api/truck-loading/orders/{id}
-PUT    /api/truck-loading/orders/{id}/status
+GET    /api/load-plan/orders
+GET    /api/load-plan/customers/{customer_id}/orders
+GET    /api/load-plan/orders/{id}
+POST   /api/load-plan/orders
+PUT    /api/load-plan/orders/{id}
+PUT    /api/load-plan/orders/{id}/status
 // you just mock delete them by using a boolean so they cant see it but its still in the database
-DELETE /api/truck-loading/orders/{id}
+DELETE /api/load-plan/orders/{id}
 
 # Email Processing
-POST   /api/truck-loading/email-processor/webhook
-GET    /api/truck-loading/email-processor/status/{process_id}
+POST   /api/load-plan/email-processor/webhook
+GET    /api/load-plan/email-processor/status/{process_id}
 
 # Loading Plan Generation
-POST   /api/truck-loading/orders/{id}/generate-loading-plan
+POST   /api/load-plan/orders/{id}/generate-loading-plan
 ```
 
 ### 3. Email Processing System

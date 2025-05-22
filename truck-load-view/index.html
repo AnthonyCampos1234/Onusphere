@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Packing Simulator</title>
+</head>
+<body>
+    <div id="container">
+        <div id="viewer"></div>
+        <div id="controls">
+            <div class="truck-controls">
+                <button id="prev-truck">Previous Truck</button>
+                <button id="next-truck">Next Truck</button>
+                <button id="toggle-dimensions">Toggle Dimensions</button>
+                <button id="view-unplaced">View Unplaced Items</button>
+                
+                <!-- Add placement form -->
+                <form id="placement-form" style="display: inline-block;">
+                    <input type="number" id="item-id" placeholder="Item ID" required>
+                    <input type="number" id="truck-id" placeholder="Truck ID" required>
+                    <div>
+                        Position: 
+                        <input type="number" id="pos-x" placeholder="X" step="0.1" required>
+                        <input type="number" id="pos-y" placeholder="Y" step="0.1" required>
+                        <input type="number" id="pos-z" placeholder="Z" step="0.1" required>
+                    </div>
+                    <div>
+                        Rotation:
+                        <input type="number" id="rot-x" placeholder="X" step="0.1" required>
+                        <input type="number" id="rot-y" placeholder="Y" step="0.1" required>
+                        <input type="number" id="rot-z" placeholder="Z" step="0.1" required>
+                    </div>
+                    <button type="submit">Place Item</button>
+                </form>
+            </div>
+            <div class="unplaced-controls" style="display: none;">
+                <button id="back-to-trucks">Back to Trucks</button>
+                <button id="toggle-dimensions">Toggle Dimensions</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html> 
